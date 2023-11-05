@@ -3,9 +3,9 @@ package com.example.noteapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
-import com.example.noteapp.ui.Note
+import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.noteapp.ui.NoteViewModel
 import com.example.noteapp.ui.theme.NoteAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,23 +13,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NoteAppTheme {
-
-                val notes = remember {
-                    mutableStateListOf<Note>()
-                }
-
-                NoteAppScreen(notes = notes, addNote = {
-                    notes.add(it)
-                }, removeNote ={
-                    notes.remove(it)
-                })
-
-
+                NoteApp()
                 // A surface container using the 'background' color from the theme
 
             }
         }
     }
+}
+
+@Composable
+fun NoteApp(noteViewModel: NoteViewModel = viewModel()) {
+    val noteList = noteViewModel.loadNoteList()
+
+    NoteAppScreen(notes = noteList, addNote = {
+        noteViewModel.addNote(it)
+    }, removeNote ={
+        noteViewModel.removeNote(it)
+    })
 }
 
 // NoteAppScreen.kt -> column -> TopAppBar stringResource(R.string.app_name)

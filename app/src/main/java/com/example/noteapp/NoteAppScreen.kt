@@ -25,10 +25,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.noteapp.ui.Note
 import com.example.noteapp.ui.NoteButton
 import com.example.noteapp.ui.NoteDataSource
 import com.example.noteapp.ui.NoteRow
+import com.example.noteapp.ui.NoteViewModel
 import com.example.noteapp.ui.TextInputField
 
 @OptIn(ExperimentalMaterial3Api::class)
