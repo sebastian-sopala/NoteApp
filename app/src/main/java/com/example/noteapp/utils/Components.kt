@@ -1,4 +1,4 @@
-package com.example.noteapp.ui
+package com.example.noteapp.utils
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -23,7 +23,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import java.time.format.DateTimeFormatter
+import com.example.noteapp.data.NoteModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
@@ -74,8 +74,8 @@ fun NoteButton(
 @Composable
 fun NoteRow(
     modifier: Modifier = Modifier,
-    note: Note,
-    onClick: (Note) -> Unit,
+    note: NoteModel,
+    onClick: (NoteModel) -> Unit,
 ) {
 
     Surface(
@@ -90,7 +90,7 @@ fun NoteRow(
         ) {
             Text(text = note.title)
             Text(text = note.description)
-            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM, YYYY")))
+//            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM, YYYY")))
         }
 
     }

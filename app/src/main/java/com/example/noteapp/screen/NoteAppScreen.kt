@@ -1,4 +1,4 @@
-package com.example.noteapp
+package com.example.noteapp.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -25,18 +25,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.noteapp.ui.Note
-import com.example.noteapp.ui.NoteButton
-import com.example.noteapp.ui.NoteDataSource
-import com.example.noteapp.ui.NoteRow
-import com.example.noteapp.ui.TextInputField
+import com.example.noteapp.R
+import com.example.noteapp.data.NoteModel
+import com.example.noteapp.utils.NoteButton
+import com.example.noteapp.data.NoteDataSource
+import com.example.noteapp.utils.NoteRow
+import com.example.noteapp.utils.TextInputField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NoteAppScreen(
-    notes: List<Note>,
-    addNote: (Note) -> Unit,
-    removeNote: (Note) -> Unit,
+    notes: List<NoteModel>,
+    addNote: (NoteModel) -> Unit,
+    removeNote: (NoteModel) -> Unit,
 ) {
 
     var title by remember {
@@ -89,7 +90,7 @@ fun NoteAppScreen(
                 .padding(start = 23.dp, end = 23.dp)
                 .padding(top = 30.dp, bottom = 30.dp)
         ) {
-            addNote(Note(title = title, description = description))
+            addNote(NoteModel(title = title, description = description))
             Toast.makeText(context, "Note Added", Toast.LENGTH_SHORT).show()
             title = ""
             description = ""

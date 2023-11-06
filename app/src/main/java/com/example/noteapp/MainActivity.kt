@@ -5,7 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.noteapp.ui.NoteViewModel
+import com.example.noteapp.screen.NoteAppScreen
+import com.example.noteapp.screen.NoteViewModel
 import com.example.noteapp.ui.theme.NoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
