@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -68,4 +70,23 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    //Hilt-Dagger
+    implementation ("com.google.dagger:hilt-android:2.44")
+    kapt ("com.google.dagger:hilt-compiler:2.44")
+
+    //Room
+    implementation ("androidx.room:room-runtime:2.5.2")
+    annotationProcessor ("androidx.room:room-compiler:2.5.2")
+
+    // To use Kotlin annotation processing tool (kapt) MUST HAVE!
+    kapt("androidx.room:room-compiler:2.5.2")
+    implementation ("androidx.room:room-ktx:2.5.2")
+
+
+
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
 }
