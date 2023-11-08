@@ -90,6 +90,7 @@ fun NoteRow(
         ) {
             Text(text = note.title)
             Text(text = note.description)
+            // TODO add the date
 //            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM, YYYY")))
         }
 

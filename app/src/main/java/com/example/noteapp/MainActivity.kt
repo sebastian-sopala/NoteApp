@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.noteapp.screen.NoteAppScreen
 import com.example.noteapp.screen.NoteViewModel
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun NoteApp(noteViewModel: NoteViewModel = viewModel()) {
-    val noteList = noteViewModel.loadNoteList()
+    val noteList = noteViewModel.noteList.collectAsState().value
 
     NoteAppScreen(notes = noteList, addNote = {
         noteViewModel.addNote(it)
